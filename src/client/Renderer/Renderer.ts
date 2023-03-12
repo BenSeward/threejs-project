@@ -6,6 +6,5 @@ export class Renderer extends WebGLRenderer {
         this.setClearColor('#ffffff')
         this.setSize(window.innerWidth, window.innerHeight)
         this.setPixelRatio(window.devicePixelRatio)
-        this.setSize(window.innerWidth, window.innerHeight)
     }
 }

@@ -6,9 +6,10 @@ export class Camera extends PerspectiveCamera {
 
         this.fov = 75
         this.aspect = window.innerWidth / window.innerHeight
-        this.near = 0.1
+        this.near = 1.0
         this.far = 1000
-        this.position.y = 3
-        this.position.z = 6
+        this.position.x = 0
+        this.position.y = 5
+        this.position.z = 10
     }
 }
