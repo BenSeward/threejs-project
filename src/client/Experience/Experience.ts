@@ -4,38 +4,24 @@ import { Renderer } from '../Renderer/Renderer'
 import { Lighting } from '../Lighting/Lighting'
 import { Character } from '../Character/Character'
 import { CharacterController } from '../Character/CharacterController'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { Floor } from '../Floor/Floor'
 
 export class Experience {
     constructor() {
         const scene = new THREE.Scene()
         const camera = new Camera()
         const renderer = new Renderer()
-        const floorMaterial = new THREE.MeshBasicMaterial({ color: 0x378805 })
-        const floorGeometry = new THREE.PlaneGeometry(20, 20, 10, 10)
-        const mesh = new THREE.Mesh(floorGeometry, floorMaterial)
-        let character: any = null
         const characterController = new CharacterController()
 
-        const loader = new GLTFLoader()
+        let character: any = null
 
-        loader.load(
-            'assets/character.glb',
-            function (gltf) {
-                character = gltf
-                scene.add(gltf.scene)
-            },
-            undefined,
-            function (error) {
-                console.error(error)
-            }
-        )
-
-        mesh.rotation.x = -Math.PI / 2
-
-        scene.add(mesh)
+        new Character().load((gltf: any) => {
+            character = gltf
+            scene.add(gltf.scene)
+        })
 
         new Lighting(scene)
+        new Floor(scene)
 
         function animate() {
             requestAnimationFrame(animate)
