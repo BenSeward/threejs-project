@@ -9,7 +9,6 @@ export class Character {
         loader.load(
             'assets/character.glb',
             function (gltf) {
-                new CharacterController(gltf, camera)
                 scene.add(gltf.scene)
             },
             undefined,
