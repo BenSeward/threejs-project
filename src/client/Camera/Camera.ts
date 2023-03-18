@@ -9,8 +9,8 @@ export class Camera extends PerspectiveCamera {
         this.near = 1.0
         this.far = 1000
         this.position.x = 0
-        this.position.y = 5
-        this.position.z = -10
+        this.position.y = 15
+        this.position.z = -50
 
         this.lookAt(0, 0, 0)
     }
